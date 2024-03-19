@@ -1,12 +1,12 @@
 import './App.css';
-import Header from './components/Header';
+import Header from './components/MovieHeader';
 
 function App() {
   return (
     <div className="App">
      
         
-        <Header className='w-100'></Header>
+        <Header></Header>
         {/* <a
           className="App-link"
           href="https://reactjs.org"
