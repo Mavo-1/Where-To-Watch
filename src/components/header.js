@@ -9,7 +9,7 @@ import {
 } from "reactstrap"; 
 
 
-const Header = ({  }) => {
+const Header = () => {
 
     return (
         <div className='container-fluid'>
