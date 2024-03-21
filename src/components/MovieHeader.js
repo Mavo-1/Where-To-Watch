@@ -27,6 +27,7 @@ const Header = () => {
             </Container>
         </Navbar>
 <h1>Hello this works</h1>
+{/* FINSIH HEADER DETAILS WITH COLOR AND SEARCH BAR*/}
         </div>
     )
 }
