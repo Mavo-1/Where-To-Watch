@@ -15,9 +15,10 @@ import {
 const SideCard = () => {
  
  return (
-    <Card color="info" style={{width: '18rem'}}
+  <div>
+    <Card className="my-1" color="info" outlinestyle={{width: '18rem'}}
   >
-    <CardBody>
+    <CardBody className="">
       <CardTitle tag="h5">
         Card title
       </CardTitle>
@@ -45,7 +46,7 @@ const SideCard = () => {
       </CardLink>
     </CardBody>
   </Card>
-
+  </div>
  )
  }
 export default SideCard;
