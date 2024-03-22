@@ -1,66 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios';
 import {
-    Container,
-    Row,
-    Col,
-    Navbar,
+    Navbar, 
+    Container, 
+    Row, 
+    Col, 
     Nav, 
-    NavLink,
-    NavbarBrand,
-    NavItem,
-    Input,
+    NavItem, 
+    NavLink, 
+    NavbarBrand, 
+    Input, 
     Button,
 } from "reactstrap"; 
+import { NavLink as ReactRouterNavLink, useNavigate } from 'react-router-dom';
+import "../styles/MovieHeader.css"
 
-const Header = () => {
+const Header = ( {onSearch}) => {
     const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
     const fetchMovies = async () => {
         try {
+            // eslint-disable-next-line no-unused-vars
             const response = await Axios.get(`https://api.themoviedb.org/3/search/movie?api_key=688c6d4613d6417a0901d30d85ba788a&query=${searchQuery}`);
-            console.log('Search results:', response.data.results)
+            onSearch(response.data.results); // Pass the search results to the parent component
+            navigate('/movies'); // Navigate to the movies route
         } catch (error) {
             console.error('Error fetching movies:', error);
         }
     };
- /**    
-  *TODO: Make sure the search results return only accurate searchs and not any movie thats similar in title 
- */
-    useEffect(() => {
-        if (searchQuery !== '') {
-            fetchMovies();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [searchQuery]); // Only re-run the effect when searchQuery changes
 
-    const handleSearch = () => {
-        // Trigger fetchMovies function when the user clicks the search button
-        fetchMovies();
-    };
+  const handleSearch = () => {
+    fetchMovies();
+  };
 
     return (
         <div className="container-fluid">
-            <Navbar fixed="top" color="primary" light expand="sm" className="border-bottom border-grey">
+            <Navbar fixed="top">
                 <Container>
                     <Row className="align-items-center">
-                        <Col>
-                            <Nav className="mr-auto" navbar>
+                        <Col xs={6}>
+                            <NavbarBrand className="d-inline-block p-0" tag={ReactRouterNavLink} to="/" style={{ width: 80 }}>Logo</NavbarBrand>
+                        </Col>
+                        <Col xs={6} className="d-flex justify-content-end">
+                            <Nav>
                                 <NavItem className="d-flex align-items-center">
-                                    <NavLink className="font-weight-bold" href="/">
-                                        <img src="" alt="Find Your Movie" className="img-fluid" style={{ width: 36 }} />
-                                    </NavLink>
+                                    <NavLink className="font-weight-bold" tag={ReactRouterNavLink} to="/">Home</NavLink>
                                 </NavItem>
                                 <NavItem className="d-flex align-items-center">
+                                    <NavLink tag={ReactRouterNavLink} to="/movies">Movies</NavLink>
                                 </NavItem>
-                            </Nav>
-                        </Col>
-                        <Col className="d-flex justify-content-lg-center">
-                            <NavbarBrand className="d-inline-block p-0" href="/" style={{ width: 80 }}></NavbarBrand>
-                        </Col>
-                        <Col>
-                            <Row>
-                                <Col>
+                                <NavItem className="d-flex align-items-center">
+                                    <NavLink tag={ReactRouterNavLink} to="/tv-shows">TV Shows</NavLink>
+                                </NavItem>
+                                <NavItem className="d-flex align-items-center">
                                     <Input
                                         id="searchInput"
                                         type="text"
@@ -69,13 +62,13 @@ const Header = () => {
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                     />
-                                </Col>
-                                <Col>
+                                </NavItem>
+                                <NavItem>
                                     <Button onClick={handleSearch} className="m-1" type="submit" color="primary">
                                         Search
                                     </Button>
-                                </Col>
-                            </Row>
+                                </NavItem>
+                            </Nav>
                         </Col>
                     </Row>
                 </Container>
@@ -83,5 +76,4 @@ const Header = () => {
         </div>
     );
 }
-
 export default Header;

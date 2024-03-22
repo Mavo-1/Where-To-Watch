@@ -1,0 +1,13 @@
+.navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    display: flex;
+    background: #060d17;
+    height: 56px;
+    width: 100%;
+    top: 0;
+    margin: 0 auto;
+    z-index: 100;
+    background: transparent;
+}
+
