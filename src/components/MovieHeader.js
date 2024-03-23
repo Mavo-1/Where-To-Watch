@@ -41,18 +41,18 @@ const Header = ( {onSearch}) => {
                 <Container>
                     <Row className="align-items-center">
                         <Col xs={6}>
-                            <NavbarBrand className="d-inline-block p-0" tag={ReactRouterNavLink} to="/" style={{ width: 80 }}>Logo</NavbarBrand>
+                            <NavbarBrand className="d-inline-block p-0 nav" tag={ReactRouterNavLink} to="/" style={{ width: 80 }}>Logo</NavbarBrand>
                         </Col>
                         <Col xs={6} className="d-flex justify-content-end">
-                            <Nav>
+                            <Nav >
                                 <NavItem className="d-flex align-items-center">
-                                    <NavLink className="font-weight-bold" tag={ReactRouterNavLink} to="/">Home</NavLink>
+                                    <NavLink className="font-weight-bold nav" tag={ReactRouterNavLink} to="/">Home</NavLink>
                                 </NavItem>
                                 <NavItem className="d-flex align-items-center">
-                                    <NavLink tag={ReactRouterNavLink} to="/movies">Movies</NavLink>
+                                    <NavLink className="font-weight-bold nav" tag={ReactRouterNavLink} to="/movies">Movies</NavLink>
                                 </NavItem>
                                 <NavItem className="d-flex align-items-center">
-                                    <NavLink tag={ReactRouterNavLink} to="/tv-shows">TV Shows</NavLink>
+                                    <NavLink className="font-weight-bold nav" tag={ReactRouterNavLink} to="/tv-shows">TV Shows</NavLink>
                                 </NavItem>
                                 <NavItem className="d-flex align-items-center">
                                     <Input
@@ -65,7 +65,7 @@ const Header = ( {onSearch}) => {
                                     />
                                 </NavItem>
                                 <NavItem>
-                                    <Button onClick={handleSearch} className="m-1" type="submit" color="primary">
+                                    <Button onClick={handleSearch} className="m-2" type="submit" color="primary">
                                         Search
                                     </Button>
                                 </NavItem>
