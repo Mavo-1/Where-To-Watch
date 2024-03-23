@@ -5,25 +5,39 @@ import {
   CardImg,
   CardTitle,
 } from "reactstrap";
-
+import "../styles/MovieCard.css"
 
 
 
 const MovieCard = ({ searchResults }) => {
- // Assuming searchResults is an array of movie objects
- if (!searchResults || searchResults.length === 0) {
-  return null; // or render a placeholder image or message
-}
-const movie = searchResults[0]; // Assuming you want to display the first movie
+  if (!searchResults || searchResults.length === 0) {
+    return null;
+  }
+
+  const movie = searchResults[0];
 
   return (
-    <Card className="mb-3">
-      <CardImg top width="100%" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-      <CardBody>
-        <CardTitle tag="h5">{movie.title}</CardTitle>
-        {/* Add more movie details as needed */}
-      </CardBody>
-    </Card>
+    <div className="body">
+      <Card className="side-card" color="secondary">
+        <CardImg
+          top
+          width="100%"
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          alt={movie.title}
+        />
+        <CardBody>
+          <CardTitle tag="h5">{movie.title}</CardTitle>
+          <p>
+            <strong>Rating:</strong> {movie.vote_average}
+          </p>
+          <p>
+            <strong>Release Year:</strong>{" "}
+            {movie.release_date ? movie.release_date.slice(0, 4) : "N/A"}
+          </p>
+          
+        </CardBody>
+      </Card>
+    </div>
   );
 };
 

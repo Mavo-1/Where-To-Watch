@@ -1,0 +1,10 @@
+.side-card {
+    width: 24rem;
+    margin: 4rem 0 0 4rem;
+    margin-left: 10rem;
+}
+
+.page {
+    background-color: gray;
+    height: 100vh;
+}

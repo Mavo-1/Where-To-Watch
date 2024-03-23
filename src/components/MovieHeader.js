@@ -24,6 +24,7 @@ const Header = ( {onSearch}) => {
             // eslint-disable-next-line no-unused-vars
             const response = await Axios.get(`https://api.themoviedb.org/3/search/movie?api_key=688c6d4613d6417a0901d30d85ba788a&query=${searchQuery}`);
             onSearch(response.data.results); // Pass the search results to the parent component
+            console.log(response.data.results)
             navigate('/movies'); // Navigate to the movies route
         } catch (error) {
             console.error('Error fetching movies:', error);

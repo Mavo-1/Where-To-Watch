@@ -1,0 +1,14 @@
+.moviePage {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns */
+    grid-gap: 1rem; /* Adjust the gap between columns */
+}
+
+.post{
+    margin-top: 5rem;
+    width:45rem;
+}
+
+.sidecard{
+    margin-left: 5rem;
+}
