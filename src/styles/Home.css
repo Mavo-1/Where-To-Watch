@@ -19,7 +19,7 @@
   
   .text-content {
     justify-content: center;
-    margin-top: 15em;
+    margin-top: 10em;
     font-size: larger;
     font-weight: 500;
     position: relative;
@@ -31,9 +31,11 @@
     font-size: 5em;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow */
+    color: aqua;
   }
 
   .lead {
     font-size:1.5em;
     font-weight:400;
+    color: whites;
   }
