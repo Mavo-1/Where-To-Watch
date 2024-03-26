@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
 import { Container, Row } from 'reactstrap';
 import Header from './components/MovieHeader';
 import HomeRoute from './pages/HomeRoute';

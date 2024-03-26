@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr; /* Two columns */
     grid-gap: 1rem; /* Adjust the gap between columns */
+    min-height: 100vh;
 }
 
 .post{
@@ -12,3 +13,4 @@
 .sidecard{
     margin-left: 5rem;
 }
+
